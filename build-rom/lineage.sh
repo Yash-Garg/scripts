@@ -59,7 +59,7 @@ while [[ $# -gt 0 ]]
 do
 param="$1"
 
-case $param in 
+case $param in
     -d|--device)
     DEVICE="$2"
     shift
@@ -96,8 +96,8 @@ fi
 
 # Define directories and variables
 #
-SOURCEDIR=
-DESTDIR=
+SOURCEDIR=~/los
+DESTDIR=~/zips
 
 # SOURCEDIR is empty, prompt the user to enter it.
 if [[ -z ${SOURCEDIR} ]]; then
@@ -108,7 +108,7 @@ fi
 
 # DESTDIR is empty, prompt the user to enter it.
 if [[ -z ${DESTDIR} ]]; then
-    echo "You did not edit the DESTDIR variable." 
+    echo "You did not edit the DESTDIR variable."
     echo "Enter your Destination Directory now:"
     read DESTDIR
 fi
@@ -170,7 +170,7 @@ source build/envsetup.sh
 
 # Prepare device
 echoText "PREPARING $( echo ${DEVICE} | awk '{print toupper($0)}' )"
-lunch lineage_${DEVICE}-userdebug
+breakfast ${DEVICE}
 
 # Clean up the out folder
 echoText "CLEANING UP OUT FOLDER"
