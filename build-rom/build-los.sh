@@ -6,7 +6,7 @@
 #         #
 ###########
 
-# $ bash build-rom.sh -d <device> -s -c -l
+# $ bash build-los.sh -d <device> -s -c -l
 
 # Device is a mandatory parameter
 # -d, --device          device you want to build for
@@ -74,7 +74,7 @@ case $param in
     LOG="log"
     ;;
     -h|--help)
-    echo "Usage: bash build-rom.sh -d <device> [OPTION]
+    echo "Usage: bash build-los.sh -d <device> [OPTION]
 
 Mandatory Parameters:
     -d, --device          device you want to build for
@@ -84,7 +84,6 @@ Optional Parameters:
     -c, --clean           clean build directory before compilation
     -l, --log             perform logging of compilation"
     exit
-    *)
     # Catch any unsupported parameters
     ;;
 esac
@@ -97,8 +96,8 @@ fi
 
 # Define directories and variables
 #
-SOURCEDIR= ~/los
-DESTDIR= ~/out/los
+SOURCEDIR=
+DESTDIR=
 
 # SOURCEDIR is empty, prompt the user to enter it.
 if [[ -z ${SOURCEDIR} ]]; then
