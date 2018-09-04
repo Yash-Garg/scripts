@@ -54,10 +54,10 @@ case $param in
     LOG="log"
     ;;
     -h|--help)
-    echo "Usage: bash lineage.sh -d <device> [OPTION]
+    echo "Usage: bash build-lineage.sh -d <device> [OPTION]
 
 Example:
-    bash lineage.sh -d A6020 -l -c -s
+    bash build-lineage.sh -d A6020 -l -c -s
 
 Mandatory Parameters:
     -d, --device          device you want to build for
