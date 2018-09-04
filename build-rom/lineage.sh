@@ -1,24 +1,6 @@
 #!/bin/bash
 
-###########
-#         #
-#  Usage  #
-#         #
-###########
-
-# $ bash build-los.sh -d <device> -s -c -l
-
-# Device is a mandatory parameter
-# -d, --device          device you want to build for
-
-# Optional Parameters:
-# -s, --sync            Repo Sync Rom before building.
-# -c, --clean           clean build directory before compilation
-# -l, --log             perform logging of compilation
-
-
 # Prints a formatted header; used for outlining
-# what the script is doing to the user
 function echoText() {
     RED="\033[01;31m"
     RST="\033[0m"
@@ -35,7 +17,7 @@ function newLine() {
     echo -e ""
 }
 
-# Check if the alias mka is available and falls back to something comparable
+# Check if the alias mka is available and falls back to something comparable.
 function make_command() {
     while [[ $# -ge 1 ]]; do
         MAKE_PARAMS+="${1} "
@@ -52,9 +34,7 @@ function make_command() {
     unset MAKE_PARAMS
 }
 
-
 # Parameters
-#
 while [[ $# -gt 0 ]]
 do
 param="$1"
@@ -74,7 +54,10 @@ case $param in
     LOG="log"
     ;;
     -h|--help)
-    echo "Usage: bash build-los.sh -d <device> [OPTION]
+    echo "Usage: bash lineage.sh -d <device> [OPTION]
+
+Example:
+    bash lineage.sh -d A6020 -l -c -s
 
 Mandatory Parameters:
     -d, --device          device you want to build for
@@ -84,7 +67,6 @@ Optional Parameters:
     -c, --clean           clean build directory before compilation
     -l, --log             perform logging of compilation"
     exit
-    # Catch any unsupported parameters
     ;;
 esac
 shift
@@ -94,10 +76,9 @@ if [[ -z ${DEVICE} ]]; then
     echo "You did not specify a device to build! This is mandatory parameter." && exit
 fi
 
-# Define directories and variables
-#
+# Define directories
 SOURCEDIR=~/los
-DESTDIR=~/zips
+DESTDIR=~/out/los
 
 # SOURCEDIR is empty, prompt the user to enter it.
 if [[ -z ${SOURCEDIR} ]]; then
@@ -112,6 +93,7 @@ if [[ -z ${DESTDIR} ]]; then
     echo "Enter your Destination Directory now:"
     read DESTDIR
 fi
+
 # Stop the script if the user didn't fill out the above variables or refused to enter them when prompted.
 if [[ -z ${SOURCEDIR} || -z ${DESTDIR} ]]; then
     echo "You did not specify a necessary variable!" && exit
@@ -122,7 +104,6 @@ LOGDIR=$( dirname ${SOURCEDIR} )/build-logs
 OUTDIR=${SOURCEDIR}/out/target/product/${DEVICE}
 
 # custom user@host in the kernel version
-#
 export KBUILD_BUILD_USER="YashGarg"
 export KBUILD_BUILD_HOST="RaspberryPI"
 
@@ -133,11 +114,9 @@ export KBUILD_BUILD_HOST="RaspberryPI"
 ##################
 #
 # Start tracking the time to see how long it takes the script to run
-#
 
 echoText "SCRIPT STARTING AT $(date +%D\ %r)"
 START=$(date +%s)
-
 
 echoText "CURRENT DIRECTORY VARIABLES"
 echo -e "Directory that contains the ROM source: ${RED}${SOURCEDIR}${RST}"
@@ -170,7 +149,7 @@ source build/envsetup.sh
 
 # Prepare device
 echoText "PREPARING $( echo ${DEVICE} | awk '{print toupper($0)}' )"
-breakfast ${DEVICE}
+lunch lineage_${DEVICE}-userdebug
 
 # Clean up the out folder
 echoText "CLEANING UP OUT FOLDER"
@@ -196,40 +175,29 @@ else
     brunch ${DEVICE}
 fi
 
-
 # If the above compilation was successful, let's notate it
 FILES=$( ls ${OUTDIR}/*.zip 2>/dev/null | wc -l )
 if [[ ${FILES} != "0" ]]; then
-    BUILD_RESULT_STRING="BUILD SUCCESSFUL"
+    BUILD_RESULT_STRING="GREAT! BUILD SUCCESSFUL"
 
+    # Push build + md5sum to remote server via SFTP
 
-    # EDIT OPTION
-    # Push build + md5sum to remote server via sFTP (if desired,
-    # uncomment the lines that follow until the break)
-    #
     #echoText "PUSHING FILES TO REMOTE SERVER VIA SFTP"
     #export SSHPASS=<YOUR-PASSWORD>
     #sshpass -e sftp -oBatchMode=no -b - <USER>@<HOST> << !
     #   cd <YOUR-PUBLIC-WWW-DOWNLOAD-DIRECTORY>
     #   put ${OUTDIR}/*${ZIPFORMAT}*
-    #   bye
-    #!
 
-
-    # EDIT OPTION
-    # Removing files section: Remove the # symbols for these next section if you
-    # want the script to remove the previous versions of the ROMs in your DESTDIR
+    # Script to remove the previous versions of the ROMs in your DESTDIR
     # (for less clutter). If the upload directory doesn't exist, make it;
     # otherwise, remove existing files in ZIPMOVE
-    #
-    #if [[ ! -d "${DESTDIR}" ]]; then
-    #   newLine; echoText "MAKING DESTINATION DIRECTORY"
-    #   mkdir -p "${DESTDIR}"
-    #else
-    #   newLine; echoText "CLEANING DESTINATION DIRECTORY"
-    #   rm -vrf "${DESTDIR}"/*
-    #fi
-
+    if [[ ! -d "${DESTDIR}" ]]; then
+       newLine; echoText "MAKING DESTINATION DIRECTORY"
+       mkdir -p "${DESTDIR}"
+    else
+       newLine; echoText "CLEANING DESTINATION DIRECTORY"
+       rm -vrf "${DESTDIR}"/*
+    fi
 
     # Copy new files from the OUTDIR to DESTDIR (for easy of access)
     #
@@ -238,6 +206,7 @@ if [[ ${FILES} != "0" ]]; then
     # Otherwise, only copy the files that don't include eng in them, since that is
     # the AOSP generated package, not the custom one we define via bacon and such
     #
+
     echoText "MOVING FILES"
     if [[ ${FILES} = 1 ]]; then
         mv -v ${OUTDIR}/*.zip* "${DESTDIR}"
@@ -247,10 +216,9 @@ if [[ ${FILES} != "0" ]]; then
         done
     fi
 
-
 # If the build failed, add a variable
 else
-    BUILD_RESULT_STRING="BUILD FAILED"
+    BUILD_RESULT_STRING="OH NO! BUILD FAILED"
 fi
 
 # Deactivate venv if applicable
@@ -260,7 +228,6 @@ fi
 
 # Go back to the home folder
 cd ${HOME}
-
 
 # PRINT THE TIME THE SCRIPT FINISHED
 # AND HOW LONG IT TOOK REGARDLESS OF SUCCESS
