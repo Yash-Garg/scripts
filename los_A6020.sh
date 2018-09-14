@@ -43,7 +43,7 @@ git clone https://github.com/A6020-pie/platform_hardware_qcom_bt -b pie-caf bt-c
 git clone https://github.com/AOSP-Legacy-MSM8916/platform_frameworks_native -b android-9.0.0 frameworks/native
 git clone https://github.com/A6020-pie/android_external_tinycompress -b pie external/tinycompress
 git clone https://github.com/A6020-pie/android_hardware_interfaces -b pie hardware/interfaces
-git clone -b https://github.com/LineageOS/android_packages_resources_devicesettings lineage-16.0 packages/resources/devicesettings
+git clone https://github.com/LineageOS/android_packages_resources_devicesettings -b lineage-16.0 packages/resources/devicesettings
 
 # Setup env before building
 . build/env*
