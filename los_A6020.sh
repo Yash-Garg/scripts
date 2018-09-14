@@ -1,5 +1,6 @@
 #!/bin/bash
 #
+#
 # Clones everything that is needed for LineageOS-16.0
 # for the Lenovo Vibe K5 (A6020)
 #
@@ -19,8 +20,8 @@ function echoText() {
     echo -e ${RST}
 }
 
-# remove specific directories
-echoText "Removing directories"
+# Remove specific directories
+echoText "Removing specified directories"
 
 rm -rf h*/q*/media-caf/msm8916 h*/q*/audio-caf/msm8916 h*/q*/display-caf/msm8916 h*/interfaces frameworks/native
 rm -rf h*/q*/wlan h*/q*/wlan-caf packages/apps/Camera2 vendor/qcom/opensource/dataservices external/tinycompress
@@ -44,9 +45,12 @@ git clone https://github.com/A6020-pie/android_external_tinycompress -b pie exte
 git clone https://github.com/A6020-pie/android_hardware_interfaces -b pie hardware/interfaces
 git clone -b https://github.com/LineageOS/android_packages_resources_devicesettings lineage-16.0 packages/resources/devicesettings
 
+# Setup env before building
 . build/env*
 
+## Pick all changes required for our device
 echoText "Picking changes that are required"
+
 # bionic
 repopick 223067
 
@@ -65,7 +69,7 @@ repopick 224264
 # vendor/lineage
 repopick 224828 225865 227951
 
-# sets custom user@host
+# Set custom user@host
 export KBUILD_BUILD_USER="YashGarg"
 export KBUILD_BUILD_HOST="RaspberryPI"
 
