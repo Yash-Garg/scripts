@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 # Clones everything that is needed for LineageOS-16.0
 # for the Lenovo Vibe K5 (A6020)
@@ -6,11 +7,27 @@
 # SPDX-License-Identifier: APACHE-2.0-only
 #
 
+# Prints a formatted header; used for outlining
+function echoText() {
+    RED="\033[01;31m"
+    RST="\033[0m"
+
+    echo -e ${RED}
+    echo -e "====$( for i in `seq ${#1}`; do echo -e "=\c"; done )===="
+    echo -e "==  ${1}  =="
+    echo -e "====$( for i in `seq ${#1}`; do echo -e "=\c"; done )===="
+    echo -e ${RST}
+}
+
 # remove specific directories
+echoText "Removing directories"
+
 rm -rf h*/q*/media-caf/msm8916 h*/q*/audio-caf/msm8916 h*/q*/display-caf/msm8916 h*/interfaces frameworks/native
 rm -rf h*/q*/wlan h*/q*/wlan-caf packages/apps/Camera2 vendor/qcom/opensource/dataservices external/tinycompress
 
 # clone all required sources (including HAls and device sources)
+echoText "Cloning all sources/HALs"
+
 git clone https://github.com/A6020-pie/android_device_lenovo_A6020 -b lineage-16.0 device/lenovo/A6020
 git clone https://github.com/A6020-pie/android_vendor_lenovo -b pie vendor/lenovo
 git clone https://github.com/Yash-Garg/android_kernel_lenovo_msm8916 -b lineage-16.0 kernel/lenovo/msm8916
@@ -29,6 +46,7 @@ git clone -b https://github.com/LineageOS/android_packages_resources_devicesetti
 
 . build/env*
 
+echoText "Picking changes that are required"
 # bionic
 repopick 223067
 
@@ -51,4 +69,7 @@ repopick 224828 225865 227951
 export KBUILD_BUILD_USER="YashGarg"
 export KBUILD_BUILD_HOST="RaspberryPI"
 
+echoText "Starting Build"
+
 lunch lineage_A6020-userdebug
+mka bacon
