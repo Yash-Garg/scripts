@@ -29,7 +29,6 @@ rm -rf h*/q*/wlan h*/q*/wlan-caf packages/apps/Camera2 vendor/qcom/opensource/da
 # clone all required sources (including HAls and device sources)
 echoText "Cloning all sources/HALs"
 
-# git clone https://github.com/A6020-pie/android_device_lenovo_A6020 -b lineage-16.0 device/lenovo/A6020
 git clone https://github.com/A6020-pie/android_vendor_lenovo -b pie vendor/lenovo
 git clone https://github.com/Yash-Garg/android_kernel_lenovo_msm8916 -b lineage-16.0 kernel/lenovo/msm8916
 git clone https://github.com/A6020-pie/android_vendor_qcom_opensource_dataservices -b pie vendor/qcom/opensource/dataservices
