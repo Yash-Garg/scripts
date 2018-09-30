@@ -19,7 +19,7 @@ echoText "Setting up build environment"
 
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install openjdk-8-jdk && sudo apt-get install git-core gnupg flex bison gperf lib32ncurses5-dev libx11-dev
+sudo apt-get install openjdk-8-jdk git-core gnupg flex bison gperf lib32ncurses5-dev libx11-dev
 sudo apt-get install build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386  x11proto-core-dev
 sudo apt-get install lib32z-dev ccache libgl1-mesa-dev libxml2-utils xsltproc unzip make bc schedtool repo imagemagick
 
