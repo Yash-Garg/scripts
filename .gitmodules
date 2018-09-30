@@ -1,0 +1,8 @@
+[submodule "adb-multi"]
+	path = adb-multi
+	url = https://github.com/KreAch3R/adb-multi.git
+	branch = master
+[submodule "android-scripts"]
+	path = android-scripts
+	url = https://github.com/tdm/android-scripts
+	branch = master
