@@ -6,3 +6,6 @@
 	path = android-scripts
 	url = https://github.com/tdm/android-scripts
 	branch = master
+[submodule "git-scripts"]
+	path = git-scripts
+	url = https://github.com/jwiegley/git-scripts
