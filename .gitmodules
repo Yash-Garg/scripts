@@ -9,3 +9,6 @@
 [submodule "git-scripts"]
 	path = git-scripts
 	url = https://github.com/jwiegley/git-scripts
+[submodule "Bash-Snippets"]
+	path = Bash-Snippets
+	url = https://github.com/alexanderepstein/Bash-Snippets
