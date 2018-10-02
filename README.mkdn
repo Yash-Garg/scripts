@@ -33,7 +33,7 @@ about it
 
 ```crowdin/crowdin-setup.sh``` -> Script for setting up crowdin on your distro.
 
-```dogbin/dogbin.sh``` -> Directly paste a text and get a link from [dogbin](del.dog).
+```dogbin/dogbin.sh``` -> Directly paste a text and get a link from [dogbin](https://del.dog).
 
 ```gerrit/gerritcfg.sh``` -> Gerrit config i use to submit patches for ROMs.
 
