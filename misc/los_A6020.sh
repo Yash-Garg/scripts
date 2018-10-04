@@ -23,7 +23,7 @@ function echoText() {
 # Remove specific directories
 echoText "Removing specified directories"
 
-rm -rf h*/q*/media-caf/msm8916 h*/q*/audio-caf/msm8916 h*/q*/display-caf/msm8916 h*/interfaces h*/q*/wlan h*/q*/wlan-caf frameworks/av vendor/qcom/opensource/dataservices external/tinycompress
+rm -rf h*/q*/bt-caf h*/q*/media-caf/msm8916 h*/q*/audio-caf/msm8916 h*/q*/display-caf/msm8916 h*/interfaces h*/q*/wlan h*/q*/wlan-caf frameworks/av vendor/qcom/opensource/dataservices external/tinycompress
 
 # clone all required sources (including HAls and device sources)
 echoText "Cloning all sources/HALs"
@@ -39,6 +39,8 @@ git clone https://github.com/A6020-pie/android_external_tinycompress -b pie exte
 git clone https://github.com/A6020-pie/android_hardware_interfaces -b pie hardware/interfaces
 git clone https://github.com/LineageOS/android_packages_resources_devicesettings -b lineage-16.0 packages/resources/devicesettings
 git clone https://github.com/A6020-pie/platform_frameworks_av -b pie frameworks/av
+git clone https://github.com/A6020-pie/platform_hardware_qcom_bt -b pie-caf h*/q*/bt-caf
+
 # Setup env before building
 . build/env*
 
@@ -46,7 +48,8 @@ git clone https://github.com/A6020-pie/platform_frameworks_av -b pie frameworks/
 echoText "Picking changes that are required"
 
 # bionic
-repopick 223067
+repopick 223067 
+repopick 223943 -f
 
 # external/perfetto
 repopick 223413
