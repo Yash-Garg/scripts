@@ -23,8 +23,7 @@ function echoText() {
 # Remove specific directories
 echoText "Removing specified directories"
 
-rm -rf h*/q*/media-caf/msm8916 h*/q*/audio-caf/msm8916 h*/q*/display-caf/msm8916 h*/interfaces h*/q*/wlan h*/q*/wlan-caf frameworks/av vendor/qcom/opensource/dataservices 
-external/tinycompress
+rm -rf h*/q*/media-caf/msm8916 h*/q*/audio-caf/msm8916 h*/q*/display-caf/msm8916 h*/interfaces h*/q*/wlan h*/q*/wlan-caf frameworks/av vendor/qcom/opensource/dataservices external/tinycompress
 
 # clone all required sources (including HAls and device sources)
 echoText "Cloning all sources/HALs"
