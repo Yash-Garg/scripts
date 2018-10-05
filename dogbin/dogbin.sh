@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-
+#
 # Copyright (C) Yash Garg <ben10.yashagarg@gmail.com>
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: GPL-v3.0-only
+#
 
 result=$(curl -sf --data-binary @"${1:--}" https://del.dog/documents) || {
       echo "ERROR: failed to post document" >&2

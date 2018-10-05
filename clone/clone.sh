@@ -1,5 +1,8 @@
 #!/bin/bash
 #
+# Copyright (C) Yash-Garg <ben10.yashgarg@gmail.com>
+# SPDX-License-Identifier: GPL-v3.0-only
+#
 # This script helps in cloning sources from AOSP
 # and pushing them to your own organisation
 #

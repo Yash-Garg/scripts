@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #
 # Copyright (C) 2018 Yash Garg
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: GPL-v3.0-only
+#
 
 sudo dnf -y update
 

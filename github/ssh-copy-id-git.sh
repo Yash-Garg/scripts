@@ -1,21 +1,24 @@
 #!/usr/bin/env bash
-#    Copy a ssh key to Github
-#    Copyright (C) 2015 Christoph "criztovyl" Schulz
 #
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
+# Copyright (C) Yash-Garg <ben10.yashgarg@gmail.com>
+# SPDX-License-Identifier: GPL-v3.0-only
 #
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
+# Copy a ssh key to Github
 #
-#    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 #
-#    Token extraction from https://github.com/debugish/env/blob/master/scripts/auth_hosts [WTFPL License](http://wtfpl.net)
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+#  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Token extraction from https://github.com/debugish/env/blob/master/scripts/auth_hosts [WTFPL License](http://wtfpl.net)
 
 ###
 # Help

@@ -1,4 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#
+# Copyright (C) Yash-Garg <ben10.yashgarg@gmail.com>
+# SPDX-License-Identifier: GPL-v3.0-only
+#
 
 sudo apt install gettext python3 python3-dev python3-pip python3-setuptools python3-wheel -y
 sudo adduser --disabled-password --gecos "" bot
