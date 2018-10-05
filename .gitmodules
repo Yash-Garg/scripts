@@ -15,3 +15,6 @@
 [submodule "heroku"]
 	path = heroku
 	url = https://github.com/Yash-Garg/heroku_cli
+[submodule "gpg_keys"]
+	path = gpg_keys
+	url = https://github.com/Yash-Garg/GPG_Keys
