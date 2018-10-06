@@ -8,8 +8,10 @@ sudo pacman -Syyu
 sudo pacman -S neofetch firefox filezilla telegram-desktop etcher git mariadb gnupg
 yaourt -S hyper anydesk sublime-text-dev spotify --noconfirm
 
-gpg --import ../gpg_keys/ryzenbox_public.asc
-gpg --import ../gpg_keys/ryzenbox_private.asc
+git clone https://github.com/Yash-Garg/GPG_Keys.git ~/gpg_keys
+
+gpg --import ~/gpg_keys/ryzenbox_public.asc
+gpg --import ~/gpg_keys/ryzenbox_private.asc
 
 git config --global user.name "Yash Garg"
 git config --global user.email "ben10.yashgarg@gmail.com"
