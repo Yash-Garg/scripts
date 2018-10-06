@@ -5,8 +5,8 @@
 #
 
 sudo pacman -Syyu
-sudo pacman -S neofetch firefox filezilla telegram-desktop etcher git mariadb gnupg
-yaourt -S hyper anydesk sublime-text-dev spotify --noconfirm
+sudo pacman -S neofetch firefox filezilla telegram-desktop etcher git mariadb gnupg paper-icon-theme
+yaourt -S hyper anydesk sublime-text-dev spotify flat-remix-git --noconfirm
 
 git clone https://github.com/Yash-Garg/GPG_Keys.git ~/gpg_keys
 
