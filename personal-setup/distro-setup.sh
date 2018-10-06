@@ -16,12 +16,19 @@ function echoText() {
     echo -e "${RST}"
 }
 
+# Creates a new line
+function newLine() {
+    echo -e ""
+}
+
+# Function for installing debian packages
 function debian_pkgs() {
     echoText "Installing and updating packages for DEBIAN"
     sudo apt-get update
     sudo apt-get upgrade
 }
 
+# Function for installing arch packages
 function arch_pkgs() {
     echoText "Installing and updating packages for ARCH"
     sudo pacman -Syyu
@@ -29,6 +36,7 @@ function arch_pkgs() {
     yaourt -S hyper anydesk sublime-text-dev spotify flat-remix-git --noconfirm
 }
 
+# Function for importing my GPG keys
 function gpgkeys() {
     echoText "Importing GPG Keys"
     git clone https://github.com/Yash-Garg/GPG_Keys.git ~/gpg_keys
@@ -36,6 +44,7 @@ function gpgkeys() {
     gpg --import ~/gpg_keys/ryzenbox_private.asc
 }
 
+# Function for configuring git
 function git_cfg() {
     echoText "Configuring git"
     git config --global user.name "Yash Garg"
@@ -56,23 +65,33 @@ case $param in
      DEBIAN="debian"
      ;;
      -h|--help)
-     echo "Usage: bash distro-setup.sh -a or -d [For arch/debian]"
+     newLine; echo "Usage: bash distro-setup.sh -a or -d [For arch/debian]"; newLine
+     exit
      ;;
 esac
 shift
 done
 
-# Define actions on parameters
+# Print this if no parameters provided
+if [[ "${ARCH}" != '1' ]]; then
+     newLine; echo "Invalid input: Please provide a parameter! It is mandatory."; newLine
 
+elif [[ "${DEBIAN}" != '1' ]]; then
+     newLine; echo "Invalid input: Please provide a parameter! It is mandatory."; newLine
+fi
+
+# Define actions on parameters
 if [[ "${ARCH}" == "arch" ]]; then
     arch_pkgs;
     gpgkeys;
     git_cfg;
+    echo "Configured!"
     echoText "Script succeeded"
 
 elif [[ "${DEBIAN}" == "debian" ]]; then
     debian_pkgs;
     gpgkeys;
     git_cfg;
+    echo "Configured!"
     echoText "Script succeeded"
 fi
