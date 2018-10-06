@@ -18,3 +18,6 @@
 [submodule "gpg_keys"]
 	path = gpg_keys
 	url = https://github.com/Yash-Garg/GPG_Keys
+[submodule "linux-stable"]
+	path = linux-stable
+	url = https://github.com/android-linux-stable/script
