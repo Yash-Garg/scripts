@@ -28,6 +28,8 @@ rm -rf h*/q*/bt-caf h*/q*/media-caf/msm8916 h*/q*/audio-caf/msm8916 h*/q*/displa
 # clone all required sources (including HAls and device sources)
 echoText "Cloning all sources/HALs"
 
+git clone https://github.com/Yash-Garg/pie_device_lenovo_A6020 -b lineage-16.0 device/lenovo/A6020
+git clone https://github.com/Yash-Garg/pie_vendor_lenovo_A6020 -b lineage-16.0 vendor/lenovo
 git clone https://github.com/Yash-Garg/android_kernel_lenovo_msm8916 -b lineage-16.0 kernel/lenovo/msm8916
 git clone https://github.com/A6020-pie/android_vendor_qcom_opensource_dataservices -b pie vendor/qcom/opensource/dataservices
 git clone https://github.com/A6020-pie/platform_hardware_qcom_audio -b pie-caf-8916 hardware/qcom/audio-caf/msm8916
