@@ -26,13 +26,14 @@ function debian_pkgs() {
     echoText "Installing and updating packages for DEBIAN"
     sudo apt-get update
     sudo apt-get upgrade
+    sudo apt-get install zsh
 }
 
 # Function for installing arch packages
 function arch_pkgs() {
     echoText "Installing and updating packages for ARCH"
     sudo pacman -Syyu
-    sudo pacman -S neofetch firefox filezilla telegram-desktop etcher git mariadb gnupg paper-icon-theme
+    sudo pacman -S neofetch firefox filezilla telegram-desktop etcher git mariadb gnupg paper-icon-theme zsh
     yaourt -S hyper anydesk sublime-text-dev spotify flat-remix-git --noconfirm
 }
 
@@ -50,6 +51,12 @@ function git_cfg() {
     git config --global user.name "Yash Garg"
     git config --global user.email "ben10.yashgarg@gmail.com"
     git config --global signing.key 40C0AECA98D94CBF
+}
+
+# Function for installing zsh shell
+function zsh_shell() {
+    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+    chsh -s /bin/zsh
 }
 
 # Parameters
@@ -86,6 +93,7 @@ if [[ "${ARCH}" == "arch" ]]; then
     gpgkeys;
     git_cfg;
     echo "Configured!"
+    newLine; zsh_shell; newLine
     echoText "Script succeeded"
 
 elif [[ "${DEBIAN}" == "debian" ]]; then
@@ -93,5 +101,6 @@ elif [[ "${DEBIAN}" == "debian" ]]; then
     gpgkeys;
     git_cfg;
     echo "Configured!"
+    newLine; zsh_shell; newLine
     echoText "Script succeeded"
 fi
