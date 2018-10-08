@@ -79,14 +79,6 @@ esac
 shift
 done
 
-# Print this if no parameters provided
-if [[ "${ARCH}" != '1' ]]; then
-     newLine; echo "Invalid input: Please provide a parameter! It is mandatory."; newLine
-
-elif [[ "${DEBIAN}" != '1' ]]; then
-     newLine; echo "Invalid input: Please provide a parameter! It is mandatory."; newLine
-fi
-
 # Define actions on parameters
 if [[ "${ARCH}" == "arch" ]]; then
     arch_pkgs;
