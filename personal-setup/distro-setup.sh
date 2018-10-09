@@ -1,13 +1,44 @@
 #!/usr/bin/env bash
+# 
 #
 # Copyright (C) Yash-Garg <ben10.yashgarg@gmail.com>
 # SPDX-License-Identifier: GPL-v3.0-only
 #
 
+# Colors for script
+BOLD="\033[1m"
+GRN="\033[01;32m"
+RED="\033[01;31m"
+RST="\033[0m"
+YLW="\033[01;33m"
+
+# Alias for echo to handle escape codes like colors
+function echo() {
+    command echo -e "$@"
+}
+
+# Prints an error in bold red
+function die() {
+    echo "${RED}${1}${RST}"
+    [[ ${2} = "-h" ]] && ${0} -h
+    echo
+    exit 1
+}
+
+# Prints a statement in bold green
+function success() {
+    echo "${GRN}${1}${RST}"
+    [[ -z ${2} ]] && echo
+}
+
+# Prints a statement in bold yellow
+function prnt_ylw() {
+    echo "${YLW}${1}${RST}"
+    [[ -z ${2} ]] && echo
+}
+
 # Prints a formatted header; used for outlining
 function echoText() {
-    RED="\033[01;31m"
-    RST="\033[0m"
 
     echo -e "${RED}"
     echo -e "====$( for i in $(seq ${#1}); do echo -e "=\c"; done )===="
@@ -23,7 +54,7 @@ function newLine() {
 
 # Function for installing debian packages
 function debian_pkgs() {
-    echoText "Installing and updating packages for DEBIAN"
+    newLine; success "Installing and updating packages for DEBIAN"
     sudo apt-get update
     sudo apt-get upgrade
     sudo apt-get install zsh
@@ -31,7 +62,7 @@ function debian_pkgs() {
 
 # Function for installing arch packages
 function arch_pkgs() {
-    echoText "Installing and updating packages for ARCH"
+    newLine; success "Installing and updating packages for ARCH"
     sudo pacman -Syyu
     sudo pacman -S neofetch firefox filezilla telegram-desktop etcher git mariadb gnupg paper-icon-theme zsh
     yaourt -S hyper anydesk sublime-text-dev spotify flat-remix-git --noconfirm
@@ -72,9 +103,12 @@ case $param in
      DEBIAN="debian"
      ;;
      -h|--help)
-     newLine; echo "Usage: bash distro-setup.sh -a or -d [For arch/debian]"; newLine
+     newLine; prnt_ylw "Usage: bash distro-setup.sh -a or -d [For arch/debian]";
      exit
      ;;
+
+     *) newLine; die "Invalid parameter specified! Use --help/-h for more info" ;;
+
 esac
 shift
 done
@@ -84,15 +118,15 @@ if [[ "${ARCH}" == "arch" ]]; then
     arch_pkgs;
     gpgkeys;
     git_cfg;
-    echo "Configured!"
+    prnt_ylw "Configured!"
     newLine; zsh_shell; newLine
-    echoText "Script succeeded"
+    success "Script succeeded"
 
 elif [[ "${DEBIAN}" == "debian" ]]; then
     debian_pkgs;
     gpgkeys;
     git_cfg;
-    echo "Configured!"
+    prnt_ylw "Configured!"
     newLine; zsh_shell; newLine
-    echoText "Script succeeded"
+    success "Script succeeded"
 fi
