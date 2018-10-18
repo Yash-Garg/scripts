@@ -21,3 +21,6 @@
 [submodule "linux-stable"]
 	path = linux-stable
 	url = https://github.com/android-linux-stable/script
+[submodule "telegram"]
+	path = telegram
+	url = https://github.com/fabianonline/telegram.sh
