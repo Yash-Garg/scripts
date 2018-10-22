@@ -13,11 +13,13 @@ function echoText() {
     RED="\033[01;31m"
     RST="\033[0m"
 
-    echo -e ${RED}
-    echo -e "====$( for i in `seq ${#1}`; do echo -e "=\c"; done )===="
+    echo -e "${RED}"
+# shellcheck disable=SC2034
+    echo -e "====$( for i in $(seq ${#1}); do echo -e "=\c"; done )===="
     echo -e "==  ${1}  =="
-    echo -e "====$( for i in `seq ${#1}`; do echo -e "=\c"; done )===="
-    echo -e ${RST}
+# shellcheck disable=SC2034
+    echo -e "====$( for i in $(seq ${#1}); do echo -e "=\c"; done )===="
+    echo -e "${RST}"
 }
 
 # Remove specific directories
@@ -44,13 +46,14 @@ git clone https://github.com/A6020-pie/platform_frameworks_av -b pie frameworks/
 git clone https://github.com/A6020-pie/platform_hardware_qcom_bt -b pie-caf h*/q*/bt-caf
 
 # Setup env before building
+# shellcheck disable=SC1090
 . build/env*
 
 ## Pick all changes required for our device
 echoText "Picking changes that are required"
 
 # bionic
-repopick 223067 
+repopick 223067
 repopick 223943 -f
 
 # external/perfetto

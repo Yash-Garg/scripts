@@ -6,6 +6,7 @@
 
 GERRIT_USER=Yash-Garg
 
+# shellcheck disable=SC2034
 ANDROID_PLATFORM_ROOT="/home/yash/los"
 
 DEFAULT_LINEAGE_BRANCH="lineage-16.0"

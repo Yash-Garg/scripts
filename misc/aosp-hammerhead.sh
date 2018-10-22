@@ -10,11 +10,13 @@ function echoText() {
     RED="\033[01;31m"
     RST="\033[0m"
 
-    echo -e ${RED}
-    echo -e "====$( for i in `seq ${#1}`; do echo -e "=\c"; done )===="
+    echo -e "${RED}"
+# shellcheck disable=SC2034
+    echo -e "====$( for i in $(seq ${#1}); do echo -e "=\c"; done )===="
     echo -e "==  ${1}  =="
-    echo -e "====$( for i in `seq ${#1}`; do echo -e "=\c"; done )===="
-    echo -e ${RST}
+# shellcheck disable=SC2034
+    echo -e "====$( for i in $(seq ${#1}); do echo -e "=\c"; done )===="
+    echo -e "${RST}"
 }
 
 echoText "Cloning Device Sources!"
@@ -24,7 +26,8 @@ git clone https://github.com/Yash-Garg/proprietary_vendor_lge -b aosp-9.0 vendor
 git clone https://github.com/Unlegacy-Android/android_kernel_lge_hammerhead -b stable kernel/lge/hammerhead
 
 # Setup build env
-. b*/e*
+# shellcheck disable=SC1091
+. build/envsetup.sh
 
 # Prepare device
 lunch aosp_hammerhead-userdebug

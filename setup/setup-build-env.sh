@@ -5,7 +5,6 @@
 #
 
 # Colors for script
-BOLD="\033[1m"
 GRN="\033[01;32m"
 RED="\033[01;31m"
 RST="\033[0m"
@@ -40,8 +39,10 @@ function prnt_ylw() {
 function echoText() {
 
     echo -e "${RED}"
+# shellcheck disable=SC2034
     echo -e "====$( for i in $(seq ${#1}); do echo -e "=\c"; done )===="
     echo -e "==  ${1}  =="
+# shellcheck disable=SC2034
     echo -e "====$( for i in $(seq ${#1}); do echo -e "=\c"; done )===="
     echo -e "${RST}"
 }
@@ -75,12 +76,12 @@ function arch_pkgs() {
 # Install ncurses5-compat-libs, lib32-ncurses5-compat-libs, aosp-devel, xml2, and lineageos-devel
     for p in ncurses5-compat-libs lib32-ncurses5-compat-libs aosp-devel xml2 lineageos-devel; do
     git clone https://aur.archlinux.org/$p
-    cd $p
+    cd ... || exit
     makepkg -si --skippgpcheck
-    cd -
+    cd ... || exit
     rm -rf $p
     done
-    
+
     echo "Don't forget to run these commands before building, or make sure the python in your PATH is 
     python2 and not python3"
     echo "

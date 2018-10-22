@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
-# 
+#
 #
 # Copyright (C) Yash-Garg <ben10.yashgarg@gmail.com>
 # SPDX-License-Identifier: GPL-v3.0-only
 #
 
 # Colors for script
-BOLD="\033[1m"
 GRN="\033[01;32m"
 RED="\033[01;31m"
 RST="\033[0m"
@@ -41,8 +40,10 @@ function prnt_ylw() {
 function echoText() {
 
     echo -e "${RED}"
+# shellcheck disable=SC2034
     echo -e "====$( for i in $(seq ${#1}); do echo -e "=\c"; done )===="
     echo -e "==  ${1}  =="
+# shellcheck disable=SC2034
     echo -e "====$( for i in $(seq ${#1}); do echo -e "=\c"; done )===="
     echo -e "${RST}"
 }

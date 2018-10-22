@@ -22,13 +22,15 @@ echo "
 <tbody>
 " >> ${file}
 count=1
+
+# shellcheck disable=SC2045
 for f in $(ls)
 do
   if [ -f "${f}" ]
   then
   filename=${f}
-  filesize=$(du -sh ${f} | awk '{print $1}')
-  filemd5=$(md5sum ${f} | cut -d ' ' -f 1)
+  filesize=$(du -sh "${f}" | awk '{print $1}')
+  filemd5=$(md5sum "${f}" | cut -d ' ' -f 1)
   echo "
   <tr>
   <td>${count}</td>
@@ -37,7 +39,7 @@ do
   <td>${filesize}</td>
   </tr>
   " >> ${file}
-  count=$(($count + 1))
+  count=$(count + 1)
   fi
 done
 echo "
