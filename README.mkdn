@@ -1,4 +1,4 @@
-# Scripts [![LICENSE](https://img.shields.io/aur/license/yaourt.svg?style=flat-square)](https://github.com/Yash-Garg/scripts/blob/master/LICENSE)
+# Scripts [![LICENSE](https://img.shields.io/aur/license/yaourt.svg?style=flat-square)](https://github.com/Yash-Garg/scripts/blob/master/LICENSE) [![Build Status](https://travis-ci.com/Yash-Garg/scripts.svg?branch=master)](https://travis-ci.com/Yash-Garg/scripts)
 
 Firstly, install ```git```, using whatever package 
 manager you have or refer to this [help page](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
