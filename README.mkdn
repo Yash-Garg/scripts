@@ -15,39 +15,3 @@ issues with using them, I do not provide any type of support as I tailor these s
 will accept pull requests if you feel something could be better!
 
 Enjoy!
-
-### Brief explanation of stuff in here
-
-```adb-multi``` -> A simple ADB wrapper to manage your development needs for multiple devices. Read more about it 
-[here](https://github.com/KreAch3R/adb-multi/blob/master/README.md).
-
-```android-scripts``` -> Bunch of random scripts for android and gerrit.
-
-```Bash-Snippets``` -> A collection of small bash scripts for heavy terminal users with no dependencies. Read more 
-about it 
-[here](https://github.com/alexanderepstein/Bash-Snippets/blob/cddc232e7b5db09f1fe91111d8c6b117902d9b51/README.md).
-
-```build-rom/build-lineage.sh``` -> Scripts for building LineageOS.
-
-```clone/clone.sh``` -> Clone sources from AOSP and push them to your own organisation.
-
-```crowdin/crowdin-setup.sh``` -> Script for setting up crowdin on your distro.
-
-```dogbin/dogbin.sh``` -> Directly paste a text and get a link from [dogbin](https://del.dog).
-
-```gerrit/gerritcfg.sh``` -> Gerrit config i use to submit patches for ROMs.
-
-```git-scripts``` -> Git scripts written by different people. Read more about it 
-[here](https://github.com/jwiegley/git-scripts/blob/cfebef1a53a332f007a16838c348a2e1e63d1792/README.md).
-
-```github/ssh-copy-id-git.sh``` -> Adds specified Public Key File to your Github's SSH keys.
-
-```html/generate-index.sh``` -> Generates an index.html with a table with the list of files in current directory.
-
-```misc``` -> Some scripts that doesn't fits anywhere else.
-
-```personal-setup``` -> Scripts i use for setting up my personal distro.
-
-```setup``` -> Setup Android Build Environment / Android SDK [```debian-build-env.sh``` is for Ubuntu/Linux 
-Mint/Other 
-distributions using the apt package manager. The rest are named as per the distro].
