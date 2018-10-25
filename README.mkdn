@@ -1,4 +1,4 @@
-# Scripts [![LICENSE](https://img.shields.io/aur/license/yaourt.svg?style=flat-square)](https://github.com/Yash-Garg/scripts/blob/master/LICENSE) [![Build Status](https://travis-ci.com/Yash-Garg/scripts.svg?branch=master)](https://travis-ci.com/Yash-Garg/scripts)
+# Scripts [![LICENSE](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/Yash-Garg/scripts/blob/master/LICENSE) [![Build Status](https://travis-ci.com/Yash-Garg/scripts.svg?branch=master)](https://travis-ci.com/Yash-Garg/scripts)
 
 Firstly, install ```git```, using whatever package 
 manager you have or refer to this [help page](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
@@ -10,7 +10,7 @@ $ git clone https://github.com/Yash-Garg/scripts
 $ cd scripts
 $ bash <name of script> or ./<name of script>
 ```
-You can take and use anything in this repo freely as it is licensed under the GPL v3. However, if you have any 
+You can take and use anything in this repo freely as it is licensed under the **GPL v3**. However, if you have any 
 issues with using them, I do not provide any type of support as I tailor these scripts entirely for my set up. I 
 will accept pull requests if you feel something could be better!
 
