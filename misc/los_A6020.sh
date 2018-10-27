@@ -43,7 +43,7 @@ git clone https://github.com/A6020-pie/android_external_tinycompress -b pie exte
 git clone https://github.com/A6020-pie/android_hardware_interfaces -b pie hardware/interfaces
 git clone https://github.com/LineageOS/android_packages_resources_devicesettings -b lineage-16.0 packages/resources/devicesettings
 git clone https://github.com/A6020-pie/platform_frameworks_av -b pie frameworks/av
-git clone https://github.com/A6020-pie/platform_hardware_qcom_bt -b pie-caf h*/q*/bt-caf
+git clone https://github.com/A6020-pie/platform_hardware_qcom_bt -b pie-caf hardware/qcom/bt-caf
 
 # Setup env before building
 # shellcheck disable=SC1090
