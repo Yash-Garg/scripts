@@ -65,7 +65,8 @@ function debian_pkgs() {
 function arch_pkgs() {
     newLine; success "Installing and updating packages for ARCH"
     sudo pacman -Syyu
-    sudo pacman -S neofetch firefox filezilla telegram-desktop etcher git mariadb gnupg paper-icon-theme zsh npm tilix uget
+    sudo pacman -S neofetch firefox filezilla telegram-desktop etcher git mariadb \
+                   gnupg paper-icon-theme zsh npm tilix uget lolcat
     yaourt -S hyper anydesk sublime-text-dev spotify flat-remix-git --noconfirm
 }
 
@@ -89,6 +90,14 @@ function git_cfg() {
 function zsh_shell() {
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
     chsh -s /bin/zsh
+}
+
+# Function for setting up aliases
+function setup_aliases() {
+    cd ~/
+    wget https://raw.githubusercontent.com/Yash-Garg/scripts/master/personal-setup/aliases.sh
+    chmod +x ~/aliases.sh
+    bash ~/aliases.sh
 }
 
 # Parameters
@@ -121,6 +130,7 @@ if [[ "${ARCH}" == "arch" ]]; then
     git_cfg;
     prnt_ylw "Configured!"
     newLine; zsh_shell; newLine
+    setup_aliases;
     success "Script succeeded"
 
 elif [[ "${DEBIAN}" == "debian" ]]; then
@@ -129,5 +139,6 @@ elif [[ "${DEBIAN}" == "debian" ]]; then
     git_cfg;
     prnt_ylw "Configured!"
     newLine; zsh_shell; newLine
+    setup_aliases;
     success "Script succeeded"
 fi
