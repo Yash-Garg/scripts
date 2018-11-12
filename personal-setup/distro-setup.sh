@@ -94,6 +94,7 @@ function zsh_shell() {
 
 # Function for setting up aliases
 function setup_aliases() {
+    # shellcheck disable=SC2164
     cd ~/
     wget https://raw.githubusercontent.com/Yash-Garg/scripts/master/personal-setup/aliases.sh
     chmod +x ~/aliases.sh
