@@ -6,3 +6,4 @@
 
 alias nfetch='neofetch | lolcat'
 alias zs='source ~/.zshrc'
+alias gitf='git commit --all -s -S'

@@ -97,8 +97,8 @@ function setup_aliases() {
     # shellcheck disable=SC2164
     cd ~/
     wget https://raw.githubusercontent.com/Yash-Garg/scripts/master/personal-setup/aliases.sh
-    chmod +x ~/aliases.sh
-    bash ~/aliases.sh
+    # shellcheck disable=SC1090
+    source ~/aliases.sh
 }
 
 # Parameters
