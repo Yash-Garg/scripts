@@ -44,6 +44,7 @@ git clone https://github.com/A6020-pie/android_hardware_interfaces -b pie hardwa
 git clone https://github.com/LineageOS/android_packages_resources_devicesettings -b lineage-16.0 packages/resources/devicesettings
 git clone https://github.com/A6020-pie/platform_frameworks_av -b pie frameworks/av
 git clone https://github.com/A6020-pie/platform_hardware_qcom_bt -b pie-caf hardware/qcom/bt-caf
+git clone https://github.com/LineageOS/android_device_qcom_sepolicy-legacy -b lineage-16.0 device/qcom/sepolicy-legacy
 
 # Setup env before building
 # shellcheck disable=SC1090
@@ -61,8 +62,5 @@ repopick 223413
 
 # system/core
 repopick 224264
-
-# vendor/lineage
-repopick 227951
 
 echoText "Script success!"
