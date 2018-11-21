@@ -58,14 +58,14 @@ function debian_pkgs() {
     newLine; success "Installing and updating packages for DEBIAN"
     sudo apt-get update
     sudo apt-get upgrade
-    sudo apt-get install zsh npm mariadb-server firefox git tilix uget
+    sudo apt-get install -y zsh npm mariadb-server firefox git tilix uget
 }
 
 # Function for installing arch packages
 function arch_pkgs() {
     newLine; success "Installing and updating packages for ARCH"
     sudo pacman -Syyu
-    sudo pacman -S neofetch firefox filezilla telegram-desktop etcher git mariadb \
+    yes | sudo pacman -S neofetch firefox filezilla telegram-desktop etcher git mariadb \
                    gnupg paper-icon-theme zsh npm tilix uget lolcat
     yaourt -S hyper anydesk sublime-text-dev spotify flat-remix-git --noconfirm
 }
