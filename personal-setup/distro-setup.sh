@@ -56,9 +56,10 @@ function newLine() {
 # Function for installing debian packages
 function debian_pkgs() {
     newLine; success "Installing and updating packages for DEBIAN"
-    sudo apt-get update
-    sudo apt-get upgrade
-    sudo apt-get install -y zsh npm mariadb-server firefox git tilix uget
+    sudo apt-get -y update
+    sudo apt-get -y upgrade
+    sudo apt-get install -y zsh npm mariadb-server firefox git tilix uget aria2 nodejs \
+                            lolcat cowsay apache2 golang python3
 }
 
 # Function for installing arch packages
@@ -66,7 +67,8 @@ function arch_pkgs() {
     newLine; success "Installing and updating packages for ARCH"
     sudo pacman -Syyu
     yes | sudo pacman -S neofetch firefox filezilla telegram-desktop etcher git mariadb \
-                   gnupg paper-icon-theme zsh npm tilix uget lolcat
+                         gnupg paper-icon-theme zsh npm tilix uget lolcat cowsay python3 \
+                         golang nodejs
     yaourt -S hyper anydesk sublime-text-dev spotify flat-remix-git --noconfirm
 }
 
@@ -76,6 +78,7 @@ function gpgkeys() {
     git clone https://github.com/Yash-Garg/GPG_Keys.git ~/gpg_keys
     gpg --import ~/gpg_keys/ryzenbox_public.asc
     gpg --import ~/gpg_keys/ryzenbox_private.asc
+    echoText "Import Done"
 }
 
 # Function for configuring git
