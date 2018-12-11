@@ -1,8 +1,9 @@
 #!/bin/bash
 #
-# Script to set up Google Cloud Server
+# Script to set up an Ubuntu 18.04 DigitalOcean Server
 # for android ROM compiling
 #
+# Made by Adithya R (ghostrider-reborn)
 #
 
 # Go to home dir
@@ -35,8 +36,8 @@ wget -O gdrive "https://docs.google.com/uc?id=0B3X9GlR6EmbnWksyTEtCM0VfaFE&expor
 chmod a+x gdrive
 sudo install gdrive /usr/local/bin/gdrive
 
-# Set up environment
-echo -e "\n================== SETTING UP ENV ==================\n"
+echo -e "\n================== SETTING UP BASHRC & .PROFILE ==================\n"
+# Add env variables & functions to bashrc
 cat <<'EOF' >> ~/.bashrc
 
 # Upload a file to transfer.sh
@@ -47,12 +48,15 @@ tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | s
 repofastsync() { schedtool -B -n 1 -e ionice -n 1 `which repo` sync -c -f --force-sync --optimized-fetch --no-tags --no-clone-bundle --prune -j8 "$@"; }
 
 export USE_CCACHE=1
+export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx6144m"
+export ANDROID_JACK_VM_ARGS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx6144m"
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Xmx6144m"
 EOF
 
 # Add android sdk to path
 cat <<'EOF' >> ~/.profile
 
-# Add Android SDK platform tools to path
+# add Android SDK platform tools to path
 if [ -d "$HOME/platform-tools" ] ; then
     PATH="$HOME/platform-tools:$PATH"
 fi
