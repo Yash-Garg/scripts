@@ -3,6 +3,7 @@ SCRIPTS_TO_TEST := build-rom/build-lineage.sh clone/clone.sh crowdin/crowdin-set
 
 test:
 		@shellcheck --exclude=SC2140,SC2001 ${SCRIPTS_TO_TEST}
+		@echo "Shellcheck successful"
 
 installhook:
 		@cp -v shellcheck-hook .git/hooks/pre-commit
