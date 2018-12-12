@@ -6,7 +6,7 @@
 # This script helps in cloning sources from AOSP
 # and pushing them to your own organisation
 #
-# Replace {REVISION} with the revision of the ROM like r1, r2
+# Replace {REVISION} with the revision of the ROM (r1, r2...)
 #
 
 git clone https://android.googlesource.com/"${1}"/ "${1}" -b android-9.0.0_"${REVISION}"
