@@ -1,6 +1,5 @@
 #!/bin/bash
 #
-#
 # Copyright (C) Yash-Garg <ben10.yashgarg@gmail.com>
 # SPDX-License-Identifier: APACHE-2.0-only
 #
