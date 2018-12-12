@@ -3,7 +3,6 @@
 # Script to set up an Ubuntu 18.04 DigitalOcean Server
 # for android ROM compiling
 #
-# Made by Adithya R (ghostrider-reborn)
 #
 
 # Go to home dir
