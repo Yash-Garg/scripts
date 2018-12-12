@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#
 
 # Script to setup the Android SDK on a Linux System
 SCRIPT_DIR="$(cd "$( dirname "$( readlink -f "${BASH_SOURCE[0]}" )" )" && pwd)"
