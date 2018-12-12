@@ -77,7 +77,7 @@ shift
 done
 
 if [[ -z ${DEVICE} ]]; then
-    echo "You did not specify a device to build! This is mandatory parameter." && exit
+    echo "You did not specify a device to build moron! This is mandatory parameter." && exit
 fi
 
 # Define directories
