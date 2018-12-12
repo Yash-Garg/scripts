@@ -46,4 +46,4 @@ echo "
 </tbody>
 </table>
 " >> ${file}
-echo "Done :)"
+echo "Done executing the script :)"
