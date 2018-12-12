@@ -14,3 +14,4 @@ curl https://raw.githubusercontent.com/MSF-Jarvis/systemd-units/master/uno-bot.s
 sudo systemctl daemon-reload
 sudo systemctl start uno-bot
 sudo systemctl enable uno-bot
+echo "UNO BOT SETUP DONE !"
