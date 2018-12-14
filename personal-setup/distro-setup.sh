@@ -40,10 +40,10 @@ function prnt_ylw() {
 function echoText() {
 
     echo -e "${RED}"
-# shellcheck disable=SC2034
+    #shellcheck disable=SC2034
     echo -e "====$( for i in $(seq ${#1}); do echo -e "=\c"; done )===="
     echo -e "==  ${1}  =="
-# shellcheck disable=SC2034
+    #shellcheck disable=SC2034
     echo -e "====$( for i in $(seq ${#1}); do echo -e "=\c"; done )===="
     echo -e "${RST}"
 }
@@ -59,7 +59,7 @@ function debian_pkgs() {
     sudo apt-get -y update
     sudo apt-get -y upgrade
     sudo apt-get install -y zsh npm mariadb-server firefox git tilix uget aria2 nodejs \
-                            lolcat cowsay apache2 golang python3
+                            lolcat cowsay apache2 golang python3 neovim ranger
 }
 
 # Function for installing arch packages
@@ -97,11 +97,22 @@ function zsh_shell() {
 
 # Function for setting up aliases
 function setup_aliases() {
-    # shellcheck disable=SC2164
+    #shellcheck disable=SC2164
     cd ~/
     wget https://raw.githubusercontent.com/Yash-Garg/scripts/master/personal-setup/aliases.sh
-    # shellcheck disable=SC1090
+    chmod +x aliases.sh
+    #shellcheck disable=SC1090
     source ~/aliases.sh
+}
+
+# Function for adding functions
+function setup_functions() {
+    #shellcheck disable=SC2164
+    cd ~/
+    wget https://raw.githubusercontent.com/Yash-Garg/scripts/master/personal-setup/functions.sh
+    chmod +x functions.sh
+    #shellcheck disable=SC1090
+    source ~/functions.sh
 }
 
 # Parameters
@@ -135,6 +146,7 @@ if [[ "${ARCH}" == "arch" ]]; then
     prnt_ylw "Configured!"
     newLine; zsh_shell; newLine
     setup_aliases;
+    setup_functions;
     success "Script succeeded"
 
 elif [[ "${DEBIAN}" == "debian" ]]; then
@@ -144,5 +156,6 @@ elif [[ "${DEBIAN}" == "debian" ]]; then
     prnt_ylw "Configured!"
     newLine; zsh_shell; newLine
     setup_aliases;
+    setup_functions;
     success "Script succeeded"
 fi
