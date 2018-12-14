@@ -71,3 +71,16 @@ function imgur {
         --header 'content-type: multipart/form-data;' -F "image=@${FILE:?}" 2>/dev/null \
         | jq .data.link | sed 's/"//g' | xclip -rmlastnl -selection clipboard
 }
+
+function ygclone {
+    git clone https://github.com/Yash-Garg/"$1"
+}
+
+function clone {
+    git clone https://github.com/"$1"
+}
+
+function mkcd {
+#shellcheck disable=SC2164
+    mkdir -p "$1" && cd "$1"
+}
