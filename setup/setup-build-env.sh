@@ -52,11 +52,6 @@ function newLine() {
     echo -e ""
 }
 
-# Creates a new line
-function newLine() {
-    echo -e ""
-}
-
 # Function for installing debian packages
 function debian_pkgs() {
     echoText "Setting up build environment for Debian"
