@@ -5,3 +5,10 @@ before_install:
 
 script:
     - make test
+
+notifications:
+  email:
+    recipients:
+      - ben10.yashgarg@gmail.com
+    on_success: always
+    on_failure: always
