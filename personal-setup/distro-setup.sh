@@ -59,7 +59,7 @@ function debian_pkgs() {
     sudo apt-get -y update
     sudo apt-get -y upgrade
     sudo apt-get install -y zsh npm mariadb-server firefox git tilix uget aria2 nodejs \
-                            lolcat cowsay apache2 golang python3 neovim ranger
+                            lolcat cowsay apache2 golang python3 neovim ranger gcc
 }
 
 # Function for installing arch packages
@@ -68,7 +68,7 @@ function arch_pkgs() {
     sudo pacman -Syyu
     yes | sudo pacman -S neofetch firefox filezilla telegram-desktop etcher git mariadb \
                          gnupg paper-icon-theme zsh npm tilix uget lolcat cowsay python3 \
-                         golang nodejs
+                         golang nodejs gcc
     yaourt -S hyper anydesk sublime-text-dev spotify flat-remix-git --noconfirm
 }
 
