@@ -68,8 +68,8 @@ function foreversay {
 function imgur {
     local FILE; FILE="${1}"
     curl --request POST --url https://api.imgur.com/3/image --header "authorization: Client-ID ${IMGUR_API_KEY}" \
-        --header 'content-type: multipart/form-data;' -F "image=@${FILE:?}" 2>/dev/null \
-        | jq .data.link | sed 's/"//g' | xclip -rmlastnl -selection clipboard
+         --header 'content-type: multipart/form-data;' -F "image=@${FILE:?}" 2>/dev/null \
+         | jq .data.link | sed 's/"//g' | xclip -rmlastnl -selection clipboard
 }
 
 function ygclone {
