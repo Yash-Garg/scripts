@@ -59,7 +59,8 @@ function debian_pkgs() {
     sudo apt-get -y update
     sudo apt-get -y upgrade
     sudo apt-get install -y zsh npm mariadb-server firefox git tilix uget aria2 nodejs \
-                            lolcat cowsay apache2 golang python3 neovim ranger gcc
+                            lolcat cowsay apache2 golang python3 neovim ranger gcc shellcheck \
+                            mosh curl android-tools-adb aria2 autoconf automake
 }
 
 # Function for installing arch packages
