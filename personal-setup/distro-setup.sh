@@ -96,16 +96,6 @@ function zsh_shell() {
     chsh -s /bin/zsh
 }
 
-# Function for setting up aliases
-function setup_aliases() {
-    #shellcheck disable=SC2164
-    cd ~/
-    wget https://raw.githubusercontent.com/Yash-Garg/scripts/master/personal-setup/aliases.sh
-    chmod +x aliases.sh
-    #shellcheck disable=SC1090
-    source ~/aliases.sh
-}
-
 # Function for adding functions
 function setup_functions() {
     #shellcheck disable=SC2164
@@ -146,7 +136,6 @@ if [[ "${ARCH}" == "arch" ]]; then
     git_cfg;
     prnt_ylw "Configured!"
     newLine; zsh_shell; newLine
-    setup_aliases;
     setup_functions;
     success "Script succeeded"
 
@@ -156,7 +145,6 @@ elif [[ "${DEBIAN}" == "debian" ]]; then
     git_cfg;
     prnt_ylw "Configured!"
     newLine; zsh_shell; newLine
-    setup_aliases;
     setup_functions;
     success "Script succeeded"
 fi
