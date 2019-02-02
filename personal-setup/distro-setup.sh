@@ -69,7 +69,7 @@ function arch_pkgs() {
     sudo pacman -Syyu
     yes | sudo pacman -S neofetch firefox filezilla telegram-desktop etcher git mariadb \
                          gnupg paper-icon-theme zsh npm tilix uget lolcat cowsay python3 \
-                         golang nodejs gcc
+                         golang nodejs gcc nano
     yaourt -S hyper anydesk sublime-text-dev spotify flat-remix-git --noconfirm
 }
 
