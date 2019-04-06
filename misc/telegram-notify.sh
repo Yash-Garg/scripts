@@ -8,6 +8,7 @@ notify() {
 	then
 		curl -s --data-urlencode "text=$default_message" "https://api.telegram.org/bot$token/sendMessage?chat_id=$chatid" > /dev/null
 	else
+		# shellcheck disable=SC2145
 		curl -s --data-urlencode "text=$@" "https://api.telegram.org/bot$token/sendMessage?chat_id=$chatid" > /dev/null
 	fi
 }
