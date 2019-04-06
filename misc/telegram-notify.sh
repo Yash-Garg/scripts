@@ -1,4 +1,3 @@
-# Telegram notify
 notify() {
 	chatid=your_chat_id                         # Your chat id
 	token=your_token_bot                        # Your Bot's token
