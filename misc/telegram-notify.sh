@@ -1,8 +1,9 @@
+# shellcheck disable=SC2148
 notify() {
 	chatid=your_chat_id                         # Your chat id
 	token=your_token_bot                        # Your Bot's token
 	default_message="Hello,I am running perfectly!"
-
+# shellcheck disable=SC2198
 	if [ -z "$@" ]
 	then
 		curl -s --data-urlencode "text=$default_message" "https://api.telegram.org/bot$token/sendMessage?chat_id=$chatid" > /dev/null
