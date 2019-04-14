@@ -73,6 +73,20 @@ function arch_pkgs() {
     yaourt -S hyper anydesk sublime-text-dev spotify flat-remix-git --noconfirm
 }
 
+# Function for installing aur helper - yaourt
+function install_yaourt() {
+    sudo pacman -S --needed base-devel git wget yajl
+    git clone https://aur.archlinux.org/package-query.git
+    # shellcheck disable=SC2164
+    cd package-query/
+    makepkg -si && cd ..
+    git clone https://aur.archlinux.org/yaourt.git
+    # shellcheck disable=SC2164
+    cd yaourt/
+    makepkg -si && cd ..
+    sudo rm -dR yaourt/ package-query/
+}
+
 # Function for importing my GPG keys
 function gpgkeys() {
     echoText "Importing GPG Keys"
@@ -131,6 +145,7 @@ done
 
 # Define actions on parameters
 if [[ "${ARCH}" == "arch" ]]; then
+    install_yaourt;
     arch_pkgs;
     gpgkeys;
     git_cfg;
