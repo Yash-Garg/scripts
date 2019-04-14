@@ -1,4 +1,4 @@
-# shellcheck disable=SC2148
+#!/usr/bin/env bash
 notify() {
 	chatid=your_chat_id                         # Your chat id
 	token=your_token_bot                        # Your Bot's token
