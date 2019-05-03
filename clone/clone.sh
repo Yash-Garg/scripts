@@ -13,7 +13,7 @@ git clone https://android.googlesource.com/"${1}"/ "${1}" -b android-9.0.0_"${RE
 
 replace=$(echo "${1}" | sed 's/\//_/g')
 
-cd "${1}" && git checkout -b 8.1.x
+cd "${1}" && git checkout -b 9.0.x
 
 git push git@github.com:ORG_NAME/"${replace}" 9.0.x
 
