@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 notify() {
 	chatid=your_chat_id                         # Your chat id
-	token=your_token_bot                        # Your Bot's token
-	default_message="Hello,I am running perfectly!"
+	token=your_bot_token                        # Your Bot's token from botfather
+	default_message="Hello,I am up and running perfectly!"
 # shellcheck disable=SC2198
 	if [ -z "$@" ]
 	then
