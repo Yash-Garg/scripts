@@ -95,6 +95,7 @@ function gpgkeys() {
     gpg --import ~/gpg_keys/ryzenbox_public.asc
     gpg --import ~/gpg_keys/ryzenbox_private.asc
     echoText "Import Done"
+    sudo rm -dR ~/gpg_keys
 }
 
 # Function for configuring git
