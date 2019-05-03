@@ -76,8 +76,6 @@ echo "Done"
 echo -e "\n================== CONFIGURING GIT ==================\n"
 git config --global user.email "ben10.yashgarg@gmail.com"
 git config --global user.name "Yash-Garg"
-git config --global alias.cp 'cherry-pick'
-git config --global alias.c 'commit'
 git config --global credential.helper cache
 git config --global credential.helper 'cache --timeout=9999999'
 echo "Done"
