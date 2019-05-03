@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: GPL-v3.0-only
 #
 
-sudo apt install gettext python3 python3-dev python3-pip python3-setuptools python3-wheel -y
+sudo apt -y install gettext python3 python3-dev python3-pip python3-setuptools python3-wheel -y
 sudo adduser --disabled-password --gecos "" bot
 sudo -H -u bot bash -c "cd /home/bot; git clone https://github.com/krypticallusion/mau_mau_bot; chmod +x mau_mau_bot/bot.py"
 sudo -H -u bot bash -c "cd /home/bot; cd mau_mau_bot/locales; bash compile.sh"
