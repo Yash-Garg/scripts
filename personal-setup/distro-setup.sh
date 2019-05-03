@@ -65,16 +65,17 @@ function debian_pkgs() {
 
 # Function for installing arch packages
 function arch_pkgs() {
-    newLine; success "Installing and updating packages for ARCH"
-    sudo pacman -Syyu
+    newLine; success "Installing and updating packages"
+    sudo pacman -Syu
     yes | sudo pacman -S neofetch firefox filezilla telegram-desktop etcher git mariadb \
                          gnupg paper-icon-theme zsh npm tilix uget lolcat cowsay python3 \
                          golang nodejs gcc nano
     yaourt -S hyper anydesk sublime-text-dev spotify flat-remix-git --noconfirm
 }
 
-# Function for installing aur helper - yaourt
+# Function for installing yaourt (aur helper)
 function install_yaourt() {
+    echoText "Installing yaourt (AUR Helper)"
     sudo pacman -S --needed base-devel git wget yajl
     git clone https://aur.archlinux.org/package-query.git
     # shellcheck disable=SC2164
