@@ -59,7 +59,7 @@ function debian_pkgs() {
     sudo apt-get -y update
     sudo apt-get -y upgrade
     sudo apt-get install -y zsh npm mariadb-server firefox git tilix uget aria2 nodejs \
-                            lolcat cowsay apache2 golang python3 neovim ranger gcc shellcheck \
+                            lolcat cowsay apache2 python3 neovim ranger gcc shellcheck \
                             mosh curl android-tools-adb autoconf automake
 }
 
@@ -68,9 +68,9 @@ function arch_pkgs() {
     newLine; success "Installing and updating packages"
     sudo pacman -Syu
     yes | sudo pacman -S neofetch firefox filezilla telegram-desktop etcher git mariadb \
-                         gnupg paper-icon-theme zsh npm tilix uget lolcat cowsay python3 \
-                         golang nodejs gcc nano
-    yaourt -S hyper anydesk sublime-text-dev spotify flat-remix-git --noconfirm
+                         gnupg zsh npm tilix uget lolcat cowsay python3 \
+                         nodejs gcc nano
+    yaourt -S anydesk spotify flat-remix-git --noconfirm
 }
 
 # Function for installing yaourt (aur helper)
