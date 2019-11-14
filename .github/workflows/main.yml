@@ -9,4 +9,4 @@ jobs:
 
     steps:
     - name: Bump Git Submodules
-    - uses: domdere/git-submodule-action@0.0.1
+      uses: domdere/git-submodule-action@0.0.1
