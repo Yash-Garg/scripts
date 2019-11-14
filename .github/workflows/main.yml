@@ -1,0 +1,12 @@
+name: Bump submodules
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Bump Git Submodules
+    - uses: domdere/git-submodule-action@0.0.1
