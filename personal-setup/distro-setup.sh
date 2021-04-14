@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 #
-# Copyright (C) Yash-Garg <ben10.yashgarg@gmail.com>
+# Copyright (C) Yash-Garg <yash.garg@outlook.in>
 # SPDX-License-Identifier: GPL-v3.0-only
 #
 
@@ -102,7 +102,7 @@ function gpgkeys() {
 function git_cfg() {
     echoText "Configuring git"
     git config --global user.name "Yash Garg"
-    git config --global user.email "ben10.yashgarg@gmail.com"
+    git config --global user.email "yash.garg@outlook.in"
     git config --global signing.key 40C0AECA98D94CBF
 }
 

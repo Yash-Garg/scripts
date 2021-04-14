@@ -4,7 +4,7 @@
 # Clones everything that is needed for LineageOS-16.0
 # for the Lenovo Vibe K5 (A6020)
 #
-# Copyright (C) Yash-Garg <ben10.yashgarg@gmail.com>
+# Copyright (C) Yash-Garg <yash.garg@outlook.in>
 # SPDX-License-Identifier: APACHE-2.0-only
 #
 

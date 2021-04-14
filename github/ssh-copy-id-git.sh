@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (C) Yash-Garg <ben10.yashgarg@gmail.com>
+# Copyright (C) Yash-Garg <yash.garg@outlook.in>
 # SPDX-License-Identifier: GPL-v3.0-only
 #
 # Copy a ssh key to Github
@@ -91,7 +91,7 @@ ssh_copy_id_github() {
         read -r -sp "Enter your OTP code (check your $(type)): " code && echo
 
         response="$(curl -si https://api.github.com/user/keys -X POST -u "$username:$password" -H "X-GitHub-OTP: $code" -H
-"application/json" -d "{\"title\": \"$USER@$HOSTNAME\", \"key\": \"$key\"}" | grep 'Status: [45][0-9]\{2\}\|X-GitHub-OTP: required; 
+"application/json" -d "{\"title\": \"$USER@$HOSTNAME\", \"key\": \"$key\"}" | grep 'Status: [45][0-9]\{2\}\|X-GitHub-OTP: required;
 .\+\|message\|key' | tr -d "\r")"
 
         otp_required "$response" otp

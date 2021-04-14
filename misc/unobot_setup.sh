@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (C) Yash-Garg <ben10.yashgarg@gmail.com>
+# Copyright (C) Yash-Garg <yash.garg@outlook.in>
 # SPDX-License-Identifier: GPL-v3.0-only
 #
 
